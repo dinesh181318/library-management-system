@@ -1,0 +1,39 @@
+.container{
+    margin-top: 2cm;
+    margin-left: 3cm;
+    margin-right: 3cm;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    
+}
+select{
+    color: white;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+table{
+    margin-top: 2cm;
+    background-color: aquamarine;
+    width: 50%;
+    position: relative;
+    left: 8cm;
+   
+  }
+  
+
+tr>th{
+    border-bottom: 0px;
+}
+
+tr>td{
+    border-top: 0px;
+}
+
+input{
+    width: 7cm;
+}
+

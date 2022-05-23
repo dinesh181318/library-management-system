@@ -1,0 +1,139 @@
+
+      
+        <form (ngSubmit)="f.valid && onSubmit(f)"  #f="ngForm">
+          
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              
+              <input type="number"
+               id="isbn" 
+               class="form-control"
+               ngModel
+               name="isbn"
+               required
+               #isbn="ngModel"
+               placeholder="ISBN">
+               
+            </div>
+            <span class="help-block"  *ngIf="f.submitted && !isbn.valid ">please enter the ISBN Number</span>
+           
+            
+            <div class="form-group">
+                <label for="bookName">BookName</label>
+                <input type="text"
+                 id="bookName" 
+                 class="form-control"
+                 ngModel
+                 name="bookName"
+                 required
+                 #bookName="ngModel"
+                 placeholder="BookName">
+                 
+              </div>
+              
+              <span  class="help-block" *ngIf="f.submitted && !bookName.valid ">please enter the Book name</span>
+              
+              <div class="form-group">
+                <label for="authorName">Author</label>
+                <input type="text"
+                 id="authorName" 
+                 class="form-control"
+                 ngModel
+                 name="authorName"
+                 required
+                 #authorName="ngModel"
+                 placeholder="Author">
+                 
+              </div>
+              <span class="help-block" *ngIf="!authorName.valid && f.submitted">please enter the Author name</span>
+              
+              <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input type="text"
+                 id="publisher" 
+                 class="form-control"
+                 ngModel
+                 name="publisher"
+                 required
+                 #publisher="ngModel"
+                 placeholder="Publisher">
+                 
+              </div>
+              <span class="help-block" *ngIf="!publisher.valid && f.submitted ">please enter the Publisher name</span>
+              
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number"
+                 id="quantity" 
+                 class="form-control"
+                 ngModel
+                 name="quantity"
+                 required
+                 #quantity="ngModel"
+                 placeholder="Quantity">
+                 
+              </div>
+              <span class="help-block" *ngIf="!quantity.valid && f.submitted">please enter the Quantity</span>
+              
+            
+           
+          <div>
+          <button
+          *ngIf="!isEdit" 
+          class="btn btn-primary" 
+          type="submit"
+          >Submit</button>
+
+          
+          <button 
+          
+          *ngIf="isEdit"
+          class="btn btn-primary"
+          type="update"
+          value="update"
+          id="updatebtn"
+          (click)="  update()"
+          
+          >Update</button>
+
+         
+        </div>
+        </form>
+
+
+
+               <table class="table">
+                   <thead>
+                       <tr >
+                           <th scope="col">ID</th>
+                           <th scope="col">ISBN</th>
+                           <th scope="col">BookName</th>
+                           <th scope="col">Author</th>
+                           <th scope="col">Publisher</th>
+                           <th scope="col">Quantity</th>
+                           <th scope="col">Issuedbook</th>
+                           <th scope="col">Actions</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr *ngFor= "let book of bookList; index as i" >
+                           <td  >{{i+1}}</td>
+                           <td>{{book.isbn}}</td>
+                           <td>{{book.bookName}}</td>
+                           <td>{{book.authorName}}</td>
+                           <td>{{book.publisher}}</td>
+                           <td>{{book.quantity}}</td>
+                           <td>{{book.issuedBook}}</td>
+                           <td>
+                               <a  (click)="deleteRow(i)" ><i id="del" class="fa fa-trash-o "></i></a>
+                           
+                           
+                              <a (click)="editRow(i)" > <i id="edit" class="fa fa-pencil-square-o"></i></a>
+                            </td>
+                       </tr>
+                   </tbody>
+               </table>
+      
+        
+      
+   

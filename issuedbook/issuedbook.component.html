@@ -1,0 +1,78 @@
+<div class="container">
+    <div>
+        <select id="users" class="dropdown-toggle" (change)="changeUser($event)">
+            <option id="user1" value="user1" selected disabled hidden #userValue>Users</option>
+            <option *ngFor="let item of list; index as i">
+                {{item.userName}}
+            </option>
+
+        </select>
+        <span class="help-block" *ngIf="isUser">please select the userName</span>
+    </div>
+    <div>
+
+        <select id="books" class="dropdown-toggle" (change)="selectBook($event)">
+            <option id="book1" value="book1" selected disabled hidden #bookValue>Books</option>
+            <option *ngFor="let book of booklist; index as i">
+                {{book.bookName}}
+            </option>
+        </select>
+        <span class="help-block" *ngIf="isBook">please select the BookName</span>
+    </div>
+
+
+
+
+
+
+    <form #inputform="ngForm">
+        <input type="number" id="count" class="form-control" ngModel name="count" required #count="ngModel"
+            placeholder="Count">
+        <span class="help-block " *ngIf="isCount1">please enter the number of books</span>
+
+        <span class="help-block " *ngIf="isCount">Only {{quantity}} books is left.please enter {{quantity}} books or
+            less </span>
+    </form>
+
+
+    <div>
+        <button class="btn btn-primary" type="button" (click)=' add()'>Issuedbook</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Book</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of (issueBookMap | keyvalue);let i=index">
+            <td >{{i+1}}</td>
+            <td >{{book.key}}</td>
+            <td >
+        
+                     <span *ngFor="let value of getBookValue(book.value)">
+                {{value.books}}_{{value.count}}
+                     </span>    
+            </td>
+    </tbody>
+ 
+  
+</table>

@@ -1,0 +1,76 @@
+
+
+
+
+
+
+
+
+
+div{
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+
+}
+
+label{
+    margin-left: 0px;
+    font-size: larger;
+}
+
+input{
+    margin-left: 4cm;
+}
+button{
+    text-align: center;
+    font-size: larger;
+    color: black;
+    padding: 10px 20px 10px 20px;
+    background-color: cornflowerblue;
+}
+
+table{
+    background-color: aquamarine;
+    width: 50%;
+    position: relative;
+    left: 8cm;
+   
+  }
+
+tr>th{
+    border-bottom: 0px;
+}
+
+tr>td{
+    border-top: 0px;
+}
+
+tbody>tr:nth-child(even){
+    background-color: rgb(168, 164, 164);
+  }
+
+  #isbn{
+      margin-left: 5.25cm;
+  }
+  #authorName{
+      margin-left: 4.9cm;
+  }
+  #publisher{
+      margin-left: 4.3cm;
+  }
+
+  #quantity{
+      margin-left: 4.5cm;
+  }
+
+  span{
+    margin-left: 6.6cm;
+    padding: 2px 5px;
+    background-color: darksalmon;
+    color: aliceblue;
+    text-align: center;
+  }
+  
